@@ -1,0 +1,226 @@
+"{ Plugin Installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+	" autocomplete
+    Plug 'Shougo/deoplete.nvim' 
+	Plug 'deoplete-plugins/deoplete-jedi'       "deoplete python source
+    Plug 'Shougo/neco-vim'                      "deoplete vim source
+    "Plug 'lighttiger2505/deoplete-vim-lsp'      "deoplete vim-lsp source 
+    "
+    "Plug 'prabirshrestha/asyncomplete.vim'      
+    "Plug 'prabirshrestha/asyncomplete-lsp.vim'      
+    "
+    "Plug 'ncm2/ncm2'
+    "Plug 'ncm2/ncm2-bufword'                    "ncm2 completion sources(this and below)
+    "Plug 'ncm2/ncm2-path'
+    "Plug 'ncm2/ncm2-vim-lsp'
+	" lint
+    "Plug 'dense-analysis/ale'
+    "Plug 'rhysd/vim-lsp-ale'                    "handle lsp confusion of ale&vim-lsp
+
+    " lsp
+    "Plug 'prabirshrestha/vim-lsp'
+    "Plug 'mattn/vim-lsp-settings'
+    
+	" General stuffs
+	Plug 'roxma/nvim-yarp'                      "welp have this bc vim8 not nvim
+	Plug 'roxma/vim-hug-neovim-rpc'             "support for dude above
+    Plug 'rhysd/vim-healthcheck'                "vim's checkhealth
+	Plug 'gosukiwi/vim-atom-dark'				"colorscheme
+    Plug 'morhetz/gruvbox'                      "colorscheme
+	Plug 'justinmk/vim-ipmotion'				"improved paragraph motion
+	Plug 'itchyny/lightline.vim'				"statusline/tabline
+call plug#end()
+"}
+
+
+"{ Plugin Setup
+" ncm2
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+"set completeopt=noinsert,menuone,noselect
+
+" asyncomplete
+"let g:asyncomplete_popup_delay=0
+"set shortmess+=c                "rid of annoying message
+
+" colorscheme
+autocmd vimenter * ++nested colorscheme gruvbox         
+    let gruvbox_bold=1
+    let gruvbox_italic=1
+    let gruvbox_transparent_bg=1
+    let g:gruvbox_contrast_dark='hard'
+    set background=dark
+    set termguicolors
+"
+"colorscheme atom-dark-256
+"
+"colorscheme default                        "default colorscheme only
+"   set background=dark
+"   highlight Comment ctermfg=242              
+
+" vim-lsp
+"let g:lsp_use_lua = has('nvim-0.4.0') || (has('lua') && has('patch-8.2.0775'))
+"function! s:on_lsp_buffer_enabled() abort
+    "" use omnifunc if you are fine with it.
+    "" setlocal omnifunc=lsp#complete
+    "if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    "" some mappings to use, tweak as you wish.
+    "nmap <buffer> <leader>d <plug>(lsp-definition)
+    "nmap <buffer> <leader>r <plug>(lsp-references)
+    "nmap <buffer> <leader>i <plug>(lsp-implementation)
+    "nmap <buffer> <leader>t <plug>(lsp-type-definition)
+    "nmap <buffer> <leader>rn <plug>(lsp-rename)
+    "nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+    "nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+    "nmap <buffer> K <plug>(lsp-hover)
+"endfunction
+"augroup lsp_install
+    "au!
+    "" call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    "autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+"augroup END
+"let g:lsp_document_highlight_enabled=0
+syntax on
+
+
+" ale
+let ale_linter={
+    \'python': ['flake8'],
+    \'vim': [],
+    \}
+let ale_fixer={
+    \'python': ['autoflake'],
+    \'*': ['remove_trailing_lines', 'trim_whitespace'],
+    \}
+let g:ale_linters_ignore_patterns = {'python': ['E501:10']}
+let g:ale_lint_on_text_changed='never'
+let g:ale_echo_cursor=0
+
+" vim-lsp-ale 
+"let g:lsp_ale_auto_enable_linter=1
+
+
+" deoplete
+let g:deoplete#enable_at_startup=1	
+
+
+"lightline
+let g:lightline = {
+	\ 'colorscheme': 'powerline',			
+	\ }
+
+
+"improv motion over folds
+let g:ip_skipfold=1
+"}
+
+
+"{ Variables
+" runtimepath
+let $RTP=split(&runtimepath, ',')[0]
+let $RC="$HOME/.vim/vimrc"
+
+
+" put line number in the beginning of lines
+set rnu
+set nu
+
+
+" indent
+set ts=4 sts=4 et sw=4 ai
+filetype indent on								
+
+
+" syntax color
+syntax on
+
+
+" plugin available
+filetype plugin indent on
+
+
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+
+" register
+set clipboard=unnamed
+set clipboard=unnamedplus
+
+
+
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+set hlsearch
+set incsearch
+
+
+" Display all matching files when tab complete
+set wildmenu								
+set wildoptions=pum
+
+
+" statusline
+set laststatus=2 							
+set noshowmode
+
+
+" backspace
+set backspace=indent,eol,start
+"}
+
+
+"{ Functions
+" Custom fold expr, copied from jdhao
+function! VimFolds(lnum)
+    " get content of current line and the line below
+    let l:cur_line = getline(a:lnum)
+    let l:next_line = getline(a:lnum+1)
+
+    if l:cur_line =~# '^"{'
+        return '>' . (matchend(l:cur_line, '"{*') - 1)
+    else
+        if l:cur_line ==# '' && (matchend(l:next_line, '"{*') - 1) == 1
+            return 0
+        else
+            return '='
+        endif
+    endif
+endfunction
+
+" Custom fold text, copied from jdhao
+function! MyFoldText()
+    let line = getline(v:foldstart)
+    let folded_line_num = v:foldend - v:foldstart
+    let line_text = substitute(line, '^"{\+', '', 'g')
+    let fillcharcount = &textwidth - len(line_text) - len(folded_line_num) - 10
+    return '+'. repeat('-', 4) . line_text . repeat('.', fillcharcount) . ' ('. folded_line_num . ' L)'
+endfunction
+"}
+
+
+"{ Autogroup
+" commenting
+augroup testgroup
+    autocmd!
+    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType vim    nnoremap <buffer> <localleader>c I"<esc>
+augroup END
+
+augroup vimfile-setting
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=expr foldlevel=0 foldlevelstart=-1
+    \ foldexpr=VimFolds(v:lnum) foldtext=MyFoldText()
+"}
+
+
+"{ Mapping
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+"}
