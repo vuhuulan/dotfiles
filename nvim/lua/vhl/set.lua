@@ -18,10 +18,10 @@ vim.keymap.set('n', '<C-up>', ':resize +3<CR>')
 vim.keymap.set('n', '<C-down>', ':resize -3<CR>')
 
 local comment = vim.api.nvim_create_augroup("comment_out", { clear = true })
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     pattern = "*.py",
-    group = vim.api.nvim_create_augroup("comment_out", { clear = true }),
-    command = "I#<esc>"
+    group = comment,
+    callback = function() vim.keymap.set('n', '<localleader>c', 'I--<esc>') end
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     pattern = "*.lua",

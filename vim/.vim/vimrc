@@ -1,13 +1,13 @@
 "{ Plugin Installation
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-	" autocomplete
+    " autocomplete
     Plug 'Shougo/deoplete.nvim' 
-	Plug 'deoplete-plugins/deoplete-jedi'       "deoplete python source
+    Plug 'deoplete-plugins/deoplete-jedi'       "deoplete python source
     Plug 'Shougo/neco-vim'                      "deoplete vim source
     "Plug 'lighttiger2505/deoplete-vim-lsp'      "deoplete vim-lsp source 
     "
@@ -18,22 +18,22 @@ call plug#begin('~/.vim/plugged')
     "Plug 'ncm2/ncm2-bufword'                    "ncm2 completion sources(this and below)
     "Plug 'ncm2/ncm2-path'
     "Plug 'ncm2/ncm2-vim-lsp'
-	" lint
+    " lint
     "Plug 'dense-analysis/ale'
     "Plug 'rhysd/vim-lsp-ale'                    "handle lsp confusion of ale&vim-lsp
 
     " lsp
     "Plug 'prabirshrestha/vim-lsp'
     "Plug 'mattn/vim-lsp-settings'
-    
-	" General stuffs
-	Plug 'roxma/nvim-yarp'                      "welp have this bc vim8 not nvim
-	Plug 'roxma/vim-hug-neovim-rpc'             "support for dude above
+
+    " General stuffs
+    Plug 'roxma/nvim-yarp'                      "welp have this bc vim8 not nvim
+    Plug 'roxma/vim-hug-neovim-rpc'             "support for dude above
     Plug 'rhysd/vim-healthcheck'                "vim's checkhealth
-	Plug 'gosukiwi/vim-atom-dark'				"colorscheme
+    Plug 'gosukiwi/vim-atom-dark'				"colorscheme
     Plug 'morhetz/gruvbox'                      "colorscheme
-	Plug 'justinmk/vim-ipmotion'				"improved paragraph motion
-	Plug 'itchyny/lightline.vim'				"statusline/tabline
+    Plug 'justinmk/vim-ipmotion'				"improved paragraph motion
+    Plug 'itchyny/lightline.vim'				"statusline/tabline
 call plug#end()
 "}
 
