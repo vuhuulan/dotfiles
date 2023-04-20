@@ -22,7 +22,7 @@ end
 
 bootstrap_paq {
     "savq/paq-nvim",
-    { 'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end },  
+    { 'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end },
 
     'nvim-lualine/lualine.nvim',
     'nvim-tree/nvim-web-devicons',
@@ -32,4 +32,8 @@ bootstrap_paq {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
-} 
+
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-path',
+    'hrsh7th/nvim-cmp',
+}
