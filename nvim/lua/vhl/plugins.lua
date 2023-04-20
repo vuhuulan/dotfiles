@@ -27,5 +27,9 @@ bootstrap_paq {
     'nvim-lualine/lualine.nvim',
     'nvim-tree/nvim-web-devicons',
 
-    'ellisonleao/gruvbox.nvim'
+    'ellisonleao/gruvbox.nvim',
+
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
 } 
