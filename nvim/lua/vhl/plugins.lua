@@ -36,4 +36,7 @@ bootstrap_paq {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
     'hrsh7th/nvim-cmp',
+
+    'nvim-lua/plenary.nvim',
+    { 'nvim-telescope/telescope.nvim', branch = '0.1.1' },
 }
