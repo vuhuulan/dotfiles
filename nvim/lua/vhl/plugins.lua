@@ -15,7 +15,6 @@ local function bootstrap_paq(packages)
         vim.notify("Installing plugins... If prompted, hit Enter to continue.")
     end
 
-    -- Read and install packages
     paq(packages)
     paq.install()
 end
@@ -25,7 +24,6 @@ bootstrap_paq {
     { 'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end },
 
     'nvim-lualine/lualine.nvim',
-    --'nvim-tree/nvim-web-devicons',
 
     'ellisonleao/gruvbox.nvim',
 
