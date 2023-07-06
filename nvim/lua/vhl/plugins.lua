@@ -37,5 +37,10 @@ bootstrap_paq {
     'hrsh7th/nvim-cmp',
 
     'nvim-lua/plenary.nvim',
-    { 'nvim-telescope/telescope.nvim', branch = '0.1.1' },
+    { 'nvim-telescope/telescope.nvim',   branch = '0.1.1' },
+
+    -- 'preservim/vimux',
+    -- 'greghor/vim-pyShell',
+    -- 'julienr/vim-cellmode',
+    'jpalardy/vim-slime',
 }
