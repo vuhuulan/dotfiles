@@ -43,4 +43,5 @@ bootstrap_paq {
     -- 'greghor/vim-pyShell',
     -- 'julienr/vim-cellmode',
     'jpalardy/vim-slime',
+    'christoomey/vim-tmux-navigator',
 }
