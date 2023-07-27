@@ -45,6 +45,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+exec picom &
 exec i3-sensible-terminal
 exec firefox
 exec_always feh --bg-scale /home/hmm/Pictures/porcelain-lissandra.jpg
