@@ -46,9 +46,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 exec picom &
-exec i3-sensible-terminal
+exec xfce4-terminal --maximize --hide-menubar  --hide-borders
 exec firefox
-exec_always feh --bg-scale /home/hmm/Pictures/porcelain-lissandra.jpg
+exec_always feh --bg-scale /home/hmm/Pictures/genshin-siblings-at-church.jpg
 
 for_window [class="firefox"]            move container to workspace $ws2
 for_window [class="Xfce4-terminal"]     move container to workspace $ws1
@@ -65,7 +65,7 @@ bindsym XF86MonBrightnessUp exec bash ~/.config/i3/scripts/brightness.sh up
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal --maximize --hide-menubar --hide-borders
 
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
