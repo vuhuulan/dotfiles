@@ -5,6 +5,15 @@
 # this file and re-run i3-config-wizard(1).
 #
 
+#Needed for i3-gaps
+#hide_edge_borders both
+for_window [class="^.*"] border pixel 2 
+gaps inner 15
+gaps outer 15
+
+bindsym $mod+z		gaps outer current plus 5
+bindsym $mod+Control+z	gaps outer current minus 5
+
 set $mod Mod1
 
 set $ws1 "1"
