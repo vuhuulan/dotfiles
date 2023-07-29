@@ -29,7 +29,7 @@ set $ws10 "10"
 
 set $refresh_i3status killall -SIGUSR1 i3status
 set $suspend exec systemctl suspend
-set $lock exec i3lock
+set $lock exec bash ~/.config/i3/scripts/lock.sh
 
 set $mode_go Go: [f]irefox [d]iscord [s]lack
 
@@ -48,7 +48,7 @@ exec --no-startup-id nm-applet
 exec picom &
 exec xfce4-terminal --maximize --hide-menubar  --hide-borders
 exec firefox
-exec_always feh --bg-scale /home/hmm/Pictures/genshin-siblings-at-church.jpg
+exec_always feh --bg-scale /home/hmm/Pictures/porcelain-lissandra.jpg
 
 for_window [class="firefox"]            move container to workspace $ws2
 for_window [class="Xfce4-terminal"]     move container to workspace $ws1
@@ -67,7 +67,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec xfce4-terminal --maximize --hide-menubar --hide-borders
 
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -fn 'Hack Nerd Font:pixelsize=17'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -150,6 +150,7 @@ mode "$mode_go" {
 }
 
 bar {
+    position top
     font pango:Hack Nerd Font 10
     status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
 }
