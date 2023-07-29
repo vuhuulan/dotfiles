@@ -40,7 +40,7 @@ interval=600
 # See the script for details.
 [volume]
 command=$SCRIPT_DIR/volume/volume
-label=♪
+label=🎵
 #label=VOL
 interval=once
 signal=10
