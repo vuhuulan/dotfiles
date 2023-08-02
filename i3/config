@@ -48,7 +48,7 @@ exec --no-startup-id nm-applet
 exec picom &
 exec xfce4-terminal --maximize --hide-menubar  --hide-borders
 exec firefox
-exec_always feh --bg-scale /home/hmm/Pictures/porcelain-lissandra.jpg
+exec_always feh --bg-scale /home/hmm/Pictures/liz-ive-wave.jpg
 
 for_window [class="firefox"]            move container to workspace $ws2
 for_window [class="Xfce4-terminal"]     move container to workspace $ws1
@@ -143,10 +143,9 @@ mode "resize" {
 # go applications mode
 bindsym $mod+g                  mode "$mode_go"
 mode "$mode_go" {
-    bindsym f                   exec firefox
-    bindsym d                   exec discord
-    bindsym s                   exec slack
-    bindsym Return              mode "default"
+    bindsym f                   exec firefox; mode "default"
+    bindsym d                   exec discord; mode "default"
+    bindsym s                   exec slack; mode "default"
 }
 
 bar {
