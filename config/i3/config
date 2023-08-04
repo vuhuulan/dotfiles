@@ -123,6 +123,7 @@ bindsym $mod+Control+c          reload
 bindsym $mod+Control+r          restart
 bindsym $mod+q                  kill
 bindsym $mod+F4                 exec bash ~/.local/bin/power.sh
+bindsym $mod+F10                exec bash ~/.local/bin/connect_bt.sh
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r                  mode "resize"
