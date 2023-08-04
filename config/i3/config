@@ -28,8 +28,6 @@ set $ws9 "9"
 set $ws10 "10"
 
 set $refresh_i3status killall -SIGUSR1 i3status
-set $suspend exec systemctl suspend
-set $lock exec bash ~/.config/i3/scripts/lock.sh
 
 set $mode_go Go: [f]irefox [d]iscord [s]lack
 
@@ -127,8 +125,7 @@ bindsym $mod+Control+c          reload
 bindsym $mod+Control+r          restart
 bindsym $mod+Control+e          exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+q                  kill
-bindsym $mod+Control+x          exec ~/.config/i3/scripts/prompt.sh 'Do you really want to lock-screen?' '$lock'
-bindsym $mod+F4                 exec ~/.config/i3/scripts/prompt.sh 'Do you really want to suspend?' '$suspend'
+bindsym $mod+F4                 exec bash ~/.local/bin/power.sh
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r                  mode "resize"
