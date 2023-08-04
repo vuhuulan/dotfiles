@@ -29,8 +29,6 @@ set $ws10 "10"
 
 set $refresh_i3status killall -SIGUSR1 i3status
 
-set $mode_go Go: [f]irefox [d]iscord [s]lack
-
 font pango:Hack Nerd Font 8
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -135,14 +133,6 @@ mode "resize" {
     bindsym j                   resize shrink height 10 px or 10 ppt
     bindsym l                   resize grow width 10 px or 10 ppt
     bindsym Return              mode "default"
-}
-
-# go applications mode
-bindsym $mod+g                  mode "$mode_go"
-mode "$mode_go" {
-    bindsym f                   exec firefox; mode "default"
-    bindsym d                   exec discord; mode "default"
-    bindsym s                   exec slack; mode "default"
 }
 
 bar {
