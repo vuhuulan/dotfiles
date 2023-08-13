@@ -44,7 +44,7 @@ exec --no-startup-id nm-applet
 exec picom &
 exec xfce4-terminal --maximize --hide-menubar  --hide-borders
 exec firefox
-exec_always feh --bg-scale /home/hmm/Pictures/genshin-siblings-at-church.jpg
+exec_always feh --bg-scale /home/hmm/Pictures/Irelia-divine-sword.jpg
 
 for_window [class="firefox"]            move container to workspace $ws2
 for_window [class="Xfce4-terminal"]     move container to workspace $ws1
