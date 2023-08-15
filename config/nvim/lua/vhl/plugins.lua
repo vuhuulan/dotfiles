@@ -44,4 +44,6 @@ bootstrap_paq {
     -- 'julienr/vim-cellmode',
     'jpalardy/vim-slime',
     'christoomey/vim-tmux-navigator',
+
+    'tpope/vim-unimpaired', -- bracket navigation
 }
