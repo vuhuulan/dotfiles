@@ -8,7 +8,7 @@
 #Needed for i3-gaps
 #hide_edge_borders both
 for_window [class="^.*"] border pixel 2 
-gaps inner 15
+gaps inner 5
 gaps outer 5
 
 bindsym $mod+z		gaps outer current plus 5
