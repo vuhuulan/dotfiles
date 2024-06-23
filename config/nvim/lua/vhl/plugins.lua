@@ -21,7 +21,7 @@ end
 
 bootstrap_paq {
     "savq/paq-nvim",
-    { 'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end },
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
     'nvim-lualine/lualine.nvim',
 
@@ -37,7 +37,7 @@ bootstrap_paq {
     'hrsh7th/nvim-cmp',
 
     'nvim-lua/plenary.nvim',
-    { 'nvim-telescope/telescope.nvim',   branch = '0.1.1' },
+    { 'nvim-telescope/telescope.nvim' },
 
     -- 'preservim/vimux',
     -- 'greghor/vim-pyShell',

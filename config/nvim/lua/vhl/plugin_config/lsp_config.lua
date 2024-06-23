@@ -27,4 +27,20 @@ require("lspconfig").lua_ls.setup{
 require("lspconfig").pylsp.setup{
     on_attach = on_attach,
     capabilities = capabilities,
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    ignore = {"E741"},
+                    maxLineLength = 100,
+                    hangClosing = false,
+                }
+            }
+        }
+    }
 }
+
+-- require("lspconfig").blackd_client.setup{
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- }
