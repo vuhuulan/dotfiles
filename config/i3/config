@@ -11,9 +11,9 @@ set $ws9 "9"
 set $ws10 "10"
 
 # needed for i3-gaps
-for_window [class="^.*"] border pixel 2 
-gaps inner                      5
-gaps outer                      5
+for_window [class="^.*"]        border pixel 2 
+gaps inner                      0
+gaps outer                      0
 
 bindsym $mod+z		            gaps outer current plus 5
 bindsym $mod+Control+z	        gaps outer current minus 5
