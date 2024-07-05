@@ -26,3 +26,9 @@ autocmd("BufWritePre", {
         vim.lsp.buf.format { async = false }
     end
 })
+
+-- set textwidt=80 for markdown
+autocmd("FileType", {
+    pattern = "markdown",
+    command = [[set textwidth=80]]
+})
