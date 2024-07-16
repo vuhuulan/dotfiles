@@ -1,5 +1,12 @@
+local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 local opts = { noremap = true, silent = true }
+local commentOut = augroup("CommentOut", { clear = true })
+local autoFormat = augroup("AutoFormat", { clear = true })
 
+vim.g.mapleader = ','
+
+--vim.opt.background = 'dark' -- comment out due to being handle by vim-unimpare
 vim.opt.guicursor = ""
 vim.opt.mouse = ""
 vim.opt.number = true
