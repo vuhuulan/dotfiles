@@ -23,27 +23,29 @@ bootstrap_paq {
     "savq/paq-nvim",
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
+    -- the line
     'nvim-lualine/lualine.nvim',
 
+    -- colorscheme
     'ellisonleao/gruvbox.nvim',
 
+    -- LSP
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
 
+    -- completion
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-buffer',
     'hrsh7th/nvim-cmp',
 
-    'nvim-lua/plenary.nvim',
+    -- utils
+    'nvim-lua/plenary.nvim',                -- dependency and telescope
     { 'nvim-telescope/telescope.nvim' },
-
-    -- 'preservim/vimux',
-    -- 'greghor/vim-pyShell',
-    -- 'julienr/vim-cellmode',
-    'jpalardy/vim-slime',
-    'christoomey/vim-tmux-navigator',
-
-    'tpope/vim-unimpaired', -- bracket navigation
+    'jpalardy/vim-slime',                   -- sending text to target, mostly used with repl
+    'christoomey/vim-tmux-navigator',       -- tmux-vim nav
+    'tpope/vim-unimpaired',                 -- bunch of tpope utils, very useful
+    'tpope/vim-commentary',
+    'tpope/vim-surround',
 }
