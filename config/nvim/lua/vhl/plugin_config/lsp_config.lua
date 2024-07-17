@@ -40,12 +40,18 @@ require("lspconfig").pylsp.setup{
     }
 }
 
--- require("lspconfig").blackd_client.setup{
---     on_attach = on_attach,
---     capabilities = capabilities,
--- }
-
 require("lspconfig").clangd.setup{
     on_attach = on_attach,
     capabilities = capabilities,
 }
+
+require("lspconfig").nil_ls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+require("lspconfig").bashls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
