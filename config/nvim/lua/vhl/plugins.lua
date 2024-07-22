@@ -48,4 +48,5 @@ bootstrap_paq {
     'tpope/vim-unimpaired',                 -- bunch of tpope utils, very useful
     'tpope/vim-commentary',
     'tpope/vim-surround',
+    'tpope/vim-fugitive',
 }
