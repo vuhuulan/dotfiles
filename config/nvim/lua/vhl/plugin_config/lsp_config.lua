@@ -1,3 +1,7 @@
+-- copy from jdhao's nvim setup
+-- https://github.com/jdhao/nvim-config/blob/main/lua/config/lsp.lua
+
+
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = { "lua_ls", "pylsp" }
