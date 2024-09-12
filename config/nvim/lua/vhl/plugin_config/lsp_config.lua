@@ -91,13 +91,20 @@ require("lspconfig").pylsp.setup{
     settings = {
         pylsp = {
             plugins = {
+                -- use ruff as linter AND formatter
+                ruff = {
+                    enable = true,
+                    extendSelect = { "ALL" },
+                    format = { "ALL" },
+                },
+
                 -- formatter options
-                black = { enabled = true },
+                black = { enabled = false },
                 autopep8 = { enabled = false },
                 yapf = { enabled = false },
 
                 -- linter options
-                pylint = { enabled = true, executable = "pylint" },
+                pylint = { enabled = false, executable = "pylint" },
                 pyflakes = { enabled = false },
                 pycodestyle = { enabled = false },
 
@@ -109,14 +116,12 @@ require("lspconfig").pylsp.setup{
 
                 -- import sorting
                 pyls_isort = { enabled = true },
+
+                -- old config
                 -- pycodestyle = {
                 --     ignore = {"E741"},
                 --     maxLineLength = 100,
                 --     hangClosing = false,
-                -- },
-                -- ruff = {
-                --     enable = true,
-                --     extendSelect = { "I" },
                 -- },
             }
         }
