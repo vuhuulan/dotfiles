@@ -14,19 +14,18 @@ local fn = vim.fn
 
 
 function _G.inspect(item)
-  vim.print(item)
+    vim.print(item)
 end
 
-
 local set_qflist = function(buf_num, severity)
-  local diagnostics = nil
-  diagnostics = diagnostic.get(buf_num, { severity = severity })
+    local diagnostics = nil
+    diagnostics = diagnostic.get(buf_num, { severity = severity })
 
-  local qf_items = diagnostic.toqflist(diagnostics)
-  vim.fn.setqflist({}, ' ', { title = 'Diagnostics', items = qf_items })
+    local qf_items = diagnostic.toqflist(diagnostics)
+    vim.fn.setqflist({}, ' ', { title = 'Diagnostics', items = qf_items })
 
-  -- open quickfix by default
-  vim.cmd[[copen]]
+    -- open quickfix by default
+    vim.cmd [[copen]]
 end
 
 
@@ -73,19 +72,19 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("lspconfig").lua_ls.setup{
+require("lspconfig").lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
         Lua = {
             diagnostics = {
-                globals = { "vim" , "nvim_set_keymap" },
+                globals = { "vim", "nvim_set_keymap" },
             },
         },
     },
 }
 
-require("lspconfig").pylsp.setup{
+require("lspconfig").pylsp.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -128,17 +127,17 @@ require("lspconfig").pylsp.setup{
     }
 }
 
-require("lspconfig").clangd.setup{
+require("lspconfig").clangd.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
 
-require("lspconfig").nil_ls.setup{
+require("lspconfig").nil_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
 
-require("lspconfig").bashls.setup{
+require("lspconfig").bashls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
@@ -155,15 +154,15 @@ require("lspconfig").bashls.setup{
 
 
 -- Change diagnostic signs.
-fn.sign_define("DiagnosticSignError", { text = '❌',  texthl = "DiagnosticSignError" })
+fn.sign_define("DiagnosticSignError", { text = '❌', texthl = "DiagnosticSignError" })
 fn.sign_define("DiagnosticSignWarn", { text = '⚠️', texthl = "DiagnosticSignWarn" })
 fn.sign_define("DiagnosticSignInfo", { text = 'ℹ️', texthl = "DiagnosticSignInfo" })
 fn.sign_define("DiagnosticSignHint", { text = '💡', texthl = "DiagnosticSignHint" })
 
 -- global config for diagnostic
 diagnostic.config {
-  underline = false,
-  virtual_text = false,
-  signs = true,
-  severity_sort = true,
+    underline = false,
+    virtual_text = false,
+    signs = true,
+    severity_sort = true,
 }
