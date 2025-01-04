@@ -7,7 +7,7 @@ require("mason-lspconfig").setup({
     ensure_installed = { "lua_ls", "pylsp" }
 })
 
-
+local lspconfig = require("lspconfig")
 local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 local fn = vim.fn
@@ -63,16 +63,9 @@ local on_attach = function(client, bufnr)
     end
 end
 
--- local on_attach = function(_, _)
---     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
---     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
---     vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
---     vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
--- end
-
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("lspconfig").lua_ls.setup {
+lspconfig.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -84,18 +77,18 @@ require("lspconfig").lua_ls.setup {
     },
 }
 
-require("lspconfig").pylsp.setup {
+lspconfig.pylsp.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
         pylsp = {
             plugins = {
-                -- use ruff as linter AND formatter
-                ruff = {
-                    enable = true,
-                    extendSelect = { "ALL" },
-                    format = { "ALL" },
-                },
+                -- -- use ruff as linter AND formatter
+                -- ruff = {
+                --     enable = false,
+                --     extendSelect = { "ALL" },
+                --     format = { "ALL" },
+                -- },
 
                 -- formatter options
                 black = { enabled = false },
@@ -108,49 +101,42 @@ require("lspconfig").pylsp.setup {
                 pycodestyle = { enabled = false },
 
                 -- type checker
-                pylsp_mypy = { enabled = true },
+                pylsp_mypy = { enabled = false },
 
                 -- auto-completion options
                 jedi_completion = { fuzzy = true },
 
-                -- import sorting
-                pyls_isort = { enabled = true },
-
-                -- old config
-                -- pycodestyle = {
-                --     ignore = {"E741"},
-                --     maxLineLength = 100,
-                --     hangClosing = false,
-                -- },
+                -- -- import sorting
+                -- pyls_isort = { enabled = true },
             }
         }
     }
 }
 
-require("lspconfig").clangd.setup {
+lspconfig.ruff.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        extendSelect = { "ALL" },
+        format = { "ALL" },
+    }
+}
+
+lspconfig.clangd.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
 
-require("lspconfig").nil_ls.setup {
+lspconfig.nil_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
 
-require("lspconfig").bashls.setup {
+lspconfig.bashls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
 
--- require('lspconfig').mypy.setup{
---     on_attach = on_attach,
---     capabilities = capabilities,
--- }
-
--- require('lspconfig').ruff.setup{
---     on_attach = on_attach,
---     capabilities = capabilities,
--- }
 
 
 -- Change diagnostic signs.
