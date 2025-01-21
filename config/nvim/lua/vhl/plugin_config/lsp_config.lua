@@ -83,12 +83,12 @@ lspconfig.pylsp.setup {
     settings = {
         pylsp = {
             plugins = {
-                -- -- use ruff as linter AND formatter
-                -- ruff = {
-                --     enable = false,
-                --     extendSelect = { "ALL" },
-                --     format = { "ALL" },
-                -- },
+                -- use ruff as linter AND formatter
+                ruff = {
+                    enable = false,
+                    extendSelect = { "ALL" },
+                    format = { "ALL" },
+                },
 
                 -- formatter options
                 black = { enabled = false },
@@ -113,14 +113,14 @@ lspconfig.pylsp.setup {
     }
 }
 
-lspconfig.ruff.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-        extendSelect = { "ALL" },
-        format = { "ALL" },
-    }
-}
+-- lspconfig.ruff.setup{
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     settings = {
+--         extendSelect = { "ALL" },
+--         format = { "ALL" },
+--     }
+-- }
 
 lspconfig.clangd.setup {
     on_attach = on_attach,
