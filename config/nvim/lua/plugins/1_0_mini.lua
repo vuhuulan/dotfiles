@@ -10,6 +10,8 @@ return {
         require("mini.bracketed").setup()
         require("mini.git").setup()
         require("mini.diff").setup()
+        require("mini.pick").setup()
+        require("mini.extra").setup()
         -- appearance
         require("mini.statusline").setup()
         require("mini.icons").setup()
