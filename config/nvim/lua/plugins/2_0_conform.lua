@@ -1,17 +1,29 @@
 return {
-    "stevearc/conform.nvim",
-    opts = {
-        formatters_by_ft = {
-            lua = { "stylua" },
-            python = function(bufnr)
-                if require("conform").get_formatter_info("ruff_format", bufnr).available then
-                    return { "ruff_format" }
-                else
-                    return { "isort", "black" }
-                end
-            end,
+    {
+        "williamboman/mason.nvim",
+        opts = {},
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {
+            ensure_installed = { "ruff" },
         },
-        format_on_save = { timeout_ms = 500, lsp_fallback = true },
-        -- Customize formatters
+    },
+    {
+        "stevearc/conform.nvim",
+        opts = {
+            formatters_by_ft = {
+                ["*"] = { "trim_whitespace", "trim_newlines" },
+                python = { "ruff_format" },
+            },
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = true,
+            },
+        },
+        config = function(_, opts)
+            local conform = require("conform")
+            conform.setup(opts)
+        end
     },
 }
