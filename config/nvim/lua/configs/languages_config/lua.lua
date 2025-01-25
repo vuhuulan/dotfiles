@@ -8,7 +8,7 @@ return {
                     "williamboman/mason.nvim",
                 },
                 opts = {
-                    ensure_installed = { "basedpyright" },
+                    ensure_installed = {},
                 },
             },
             {
@@ -25,8 +25,6 @@ return {
         },
         config = function()
             require("lspconfig").lua_ls.setup {}
-            -- require("lspconfig").pyright.setup {}
-            require("lspconfig").basedpyright.setup {}
         end,
     },
 }
