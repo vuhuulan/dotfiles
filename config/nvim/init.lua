@@ -12,6 +12,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.guicursor = ""
 
 vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
 vim.keymap.set('n', 'grr', vim.lsp.buf.references)
@@ -23,6 +24,7 @@ vim.keymap.set('v', 'gra', vim.lsp.buf.code_action)
 -- f is for 'fuzzy find'
 nmap_leader('f/', '<Cmd>Pick history scope="/"<CR>', '"/" history')
 nmap_leader('f:', '<Cmd>Pick history scope=":"<CR>', '":" history')
+nmap_leader('fo', '<Cmd>Pick oldfiles<CR>', 'Old files')
 nmap_leader('fa', '<Cmd>Pick git_hunks scope="staged"<CR>', 'Added hunks (all)')
 nmap_leader('fA', '<Cmd>Pick git_hunks path="%" scope="staged"<CR>', 'Added hunks (current)')
 nmap_leader('fb', '<Cmd>Pick buffers<CR>', 'Buffers')
