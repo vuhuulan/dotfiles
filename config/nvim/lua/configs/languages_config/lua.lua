@@ -8,7 +8,7 @@ return {
                     "williamboman/mason.nvim",
                 },
                 opts = {
-                    ensure_installed = {},
+                    ensure_installed = {"lua_ls"},
                 },
             },
             {
