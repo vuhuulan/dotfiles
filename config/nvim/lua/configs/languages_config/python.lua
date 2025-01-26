@@ -33,7 +33,11 @@ return {
             },
         },
         config = function()
-            require("lspconfig").basedpyright.setup {}
+            require("lspconfig").basedpyright.setup {
+                settings = {
+                    basedpyright = { typeCheckingMode = "standard" }
+                }
+            }
         end,
     },
 }
