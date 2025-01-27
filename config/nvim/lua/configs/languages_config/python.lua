@@ -1,13 +1,12 @@
 return {
     {
+        "williamboman/mason.nvim",
+        opts = {
+            ensure_installed = { "ruff", "basedpyright" },
+        }
+    },
+    {
         "stevearc/conform.nvim",
-        dependencies = {
-            "williamboman/mason-lspconfig.nvim",
-            dependencies = { "williamboman/mason.nvim" },
-            opts = {
-                ensure_installed = { "ruff" },
-            },
-        },
         opts = {
             formatters_by_ft = {
                 ["*"] = { "trim_whitespace", "trim_newlines" },
@@ -21,17 +20,18 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            {
-                "williamboman/mason-lspconfig.nvim",
-                dependencies = {
-                    "williamboman/mason.nvim",
-                },
-                opts = {
-                    ensure_installed = { "basedpyright" },
-                },
-            },
-        },
+        -- opts = {
+        --     servers = {
+        --         basedpyright = {
+        --             -- settings = {
+        --             --     basedpyright = {
+        --             --         typeCheckingMode = "standard"
+        --             --     }
+        --             -- }
+        --         }
+        --     },
+        --     setup = {},
+        -- }
         config = function()
             require("lspconfig").basedpyright.setup {
                 settings = {

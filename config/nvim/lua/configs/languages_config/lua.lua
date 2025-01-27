@@ -1,16 +1,13 @@
 return {
     {
+        "williamboman/mason.nvim",
+        opts = {
+            ensure_installed = { "lua-language-server" },
+        }
+    },
+    {
         "neovim/nvim-lspconfig",
         dependencies = {
-            {
-                "williamboman/mason-lspconfig.nvim",
-                dependencies = {
-                    "williamboman/mason.nvim",
-                },
-                opts = {
-                    ensure_installed = {"lua_ls"},
-                },
-            },
             {
                 "folke/lazydev.nvim",
                 ft = "lua", -- only load on lua files
@@ -23,8 +20,6 @@ return {
                 },
             },
         },
-        config = function()
-            require("lspconfig").lua_ls.setup {}
-        end,
+        require("lspconfig").lua_ls.setup {},
     },
 }
