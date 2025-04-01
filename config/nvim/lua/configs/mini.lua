@@ -12,6 +12,7 @@ return {
         require("mini.diff").setup()
         require("mini.pick").setup()
         require("mini.extra").setup()
+        require("mini.visits").setup()
         -- appearance
         require("mini.statusline").setup()
         require("mini.icons").setup()
