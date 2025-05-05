@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+curl 'wttr.in?0TF' 2>&1 -s | sed -E 's/^.{16}//'m | sed -n "3,4p" | sed '$!N;s/\n/  /' | sed "s/[[:space:]]*$//"
