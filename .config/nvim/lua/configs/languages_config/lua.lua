@@ -20,6 +20,8 @@ return {
                 },
             },
         },
-        require("lspconfig").lua_ls.setup {},
+        config = function ()
+            require("lspconfig").lua_ls.setup {}
+        end
     },
 }
