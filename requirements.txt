@@ -1,0 +1,6 @@
+zathura
+fcitx5
+firefox
+fastfetch
+stow
+dmenu
