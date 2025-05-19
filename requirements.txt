@@ -1,6 +1,21 @@
-zathura
-fcitx5
-firefox
-fastfetch
+# Only for Arch
+
+# essential
 stow
 dmenu
+fcitx5
+
+# functional
+zathura
+firefox
+fastfetch
+discord
+
+# audio
+wireplumber
+pipewire
+pipewire-jack
+
+pipewire-audio  # bluetooth
+bluez
+bluez-utils
