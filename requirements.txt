@@ -1,21 +1,16 @@
 # Only for Arch
 
 # essential
-stow
-dmenu
-fcitx5
 
 # functional
-zathura
-firefox
-fastfetch
+zathura zathura-pdf-mupdf
+zoxide fzf stow fastfetch
+dmenu
+fcitx5
+bluez bluez-utils
+firefox noto-fonts noto-fonts-cjk
+pipewire pipewire-jack wireplumber pipewire-audio
+feh
+
+# optional
 discord
-
-# audio
-wireplumber
-pipewire
-pipewire-jack
-
-pipewire-audio  # bluetooth
-bluez
-bluez-utils
