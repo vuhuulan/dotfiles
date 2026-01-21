@@ -2,7 +2,7 @@ return {
     {
         "williamboman/mason.nvim",
         opts = {
-            ensure_installed = { "markdownlint-cli2" },
+            ensure_installed = { "tex-fmt" },
         }
     },
 }
