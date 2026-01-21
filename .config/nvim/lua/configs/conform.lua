@@ -9,6 +9,7 @@ return {
                 "ruff_format",
                 "ruff_organize_imports",
             },
+            tex = { "tex-fmt" },
         },
         format_on_save = {
             timeout_ms = 500,
