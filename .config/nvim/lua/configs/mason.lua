@@ -38,7 +38,7 @@ return {
             "lua-language-server",  -- lua
             "ruff", "basedpyright", -- python
             "markdownlint-cli2",
-            "tex-fmt",
+            "tex-fmt", "harper-ls", -- tex
         },
     },
 }

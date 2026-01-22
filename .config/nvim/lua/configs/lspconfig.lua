@@ -20,7 +20,17 @@ return {
                     basedpyright = { typeCheckingMode = "standard" }
                 }
             })
+
             vim.lsp.enable('lua_ls')
+
+            vim.lsp.config('harper_ls', {
+              settings = {
+                ["harper-ls"] = {
+                  userDictPath = "~/dict.txt"
+                }
+              },
+            })
+            vim.lsp.enable('harper_ls')
         end,
     },
 }
