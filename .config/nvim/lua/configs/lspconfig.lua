@@ -31,6 +31,8 @@ return {
               },
             })
             vim.lsp.enable('harper_ls')
+
+            vim.lsp.enable('texlab')
         end,
     },
 }
